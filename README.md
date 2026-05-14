@@ -10,14 +10,14 @@ Personal install guide for Claude Code.
 
 ## Chrome
 
-### Settings
+### Chrome Settings
 
 - Font: Anthropic Sans
 
 
 ## Windows 
 
-### Installation
+### Windows Installation
 
 ```powershell
 winget install -e --id Anthropic.Claude -e -s winget
@@ -25,7 +25,7 @@ winget install -e --id Anthropic.Claude -e -s winget
 
 ## Linux
 
-### Pre-requisites
+### Linux Pre-requisites
 
 ```bash
 sudo apt update && sudo apt install -y \
@@ -48,7 +48,7 @@ node --version
 npm --version
 ```
 
-### Lunix Installation 
+### Linux Installation 
 
 ```bash
 curl -fsSL https://claude.ai/install.sh | bash
