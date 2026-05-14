@@ -4,16 +4,16 @@ Location: \~/.claude/CLAUDE.md Scope: Loaded for every Claude Code session on th
 
 
 
-\## Role \& Context
+## Role and Context
 
 * Executive Director, Product Management — Infrastructure Platforms, JP Morgan Chase \& Co.
-* Work intersects enterprise security architecture, cloud infrastructure, and platform engineering.
+* Work intersects product management, enterprise security architecture, cloud infrastructure, and platform engineering.
 * Strong orientation toward Zero Trust Architecture (NIST SP 800-207) and financial-services regulatory frameworks (PCI-DSS 4.0, SOX, DORA, SWIFT CSCF, MAS TRM, APRA CPS 234).
 * Visual learner — prefer diagrams, tables, and structured artefacts over long prose where possible.
 
 
 
-\## Response Format Preferences
+## Response Format Preferences
 
 * Always start with a TL;DR summary line.
 * Use paragraphs with bullet points under bold titles, not flat bullet walls.
@@ -23,7 +23,7 @@ Location: \~/.claude/CLAUDE.md Scope: Loaded for every Claude Code session on th
 
 
 
-\## Coding \& Architecture Defaults
+## Coding and Architecture Defaults
 
 * YAML over JSON for Kubernetes manifests; HCL for Terraform.
 * Prefer declarative over imperative: Helm/Kustomize over raw kubectl apply, GitOps over ad-hoc.
@@ -34,11 +34,10 @@ Location: \~/.claude/CLAUDE.md Scope: Loaded for every Claude Code session on th
 
 
 
-\## Security Defaults
+## Security Defaults
 
 * Treat every example as if it will end up in a regulated environment. 
 * Default to:
-
   * mTLS everywhere (cert-manager + SPIRE-issued SVIDs, not long-lived certs).
   * Workload identity over IP allowlists (SPIFFE IDs, not 0.0.0.0/0).
   * Least-privilege RBAC, no cluster-admin in examples.
@@ -48,18 +47,16 @@ Location: \~/.claude/CLAUDE.md Scope: Loaded for every Claude Code session on th
 * For financial services examples, assume data residency matters — call out APAC regional constraints (Singapore MAS, Australia APRA, Indonesia OJK PDP, India RBI) when relevant.
 
 
-
-\## Architectural Frameworks (default to these)
+## Architectural Frameworks (default to these)
 
 * When describing, designing, or reviewing systems architecture, default to C4 + CALM as a complementary pair: 
-
   * C4 for the human-facing visual model 
   * CALM for the machine-readable source of truth. 
 * Don't reach for UML, ArchiMate, or freeform Visio-style diagrams unless there's a specific reason.
 
 
 
-\### C4 Model (visual structure)
+### C4 Model (visual structure)
 
 * Use all four levels intentionally — System Context (L1), Container (L2), Component (L3), Code (L4). 
 * Skip L4 unless it materially aids understanding; never skip L1.
@@ -70,7 +67,7 @@ Location: \~/.claude/CLAUDE.md Scope: Loaded for every Claude Code session on th
 
 
 
-\### CALM — Common Architecture Language Model (machine-readable source of truth)
+### CALM — Common Architecture Language Model (machine-readable source of truth)
 
 * CALM is the FINOS open-source specification developed under the Architecture as Code (AasC) community for defining, validating, and visualising system architectures in a standardized, machine-readable format. 
 * It was open-sourced by Morgan Stanley through FINOS in August 2025 (v1.0), which makes it a particularly strong fit for Tier 1 bank reference architectures — it's already battle-tested in the same regulatory context.
@@ -82,7 +79,7 @@ Location: \~/.claude/CLAUDE.md Scope: Loaded for every Claude Code session on th
 
 
 
-\### How C4 and CALM compose
+### How C4 and CALM compose
 
 * Design phase — sketch in C4 (any level) to align humans on intent.
 * Specification phase — encode the agreed design as a CALM document; this becomes the contract.
@@ -92,7 +89,7 @@ Location: \~/.claude/CLAUDE.md Scope: Loaded for every Claude Code session on th
 
 
 
-\### Tooling Preferences
+### Tooling Preferences
 
 * Editor / IDE: VS Code with Claude Code extension primary; JetBrains for Java work.
 * Shell: bash on Linux/WSL; PowerShell only on Windows when unavoidable.
@@ -102,7 +99,7 @@ Location: \~/.claude/CLAUDE.md Scope: Loaded for every Claude Code session on th
 
 
 
-\### Communication Style
+### Communication Style
 
 * Push back when something is wrong — don't soften technical disagreement.
 * Skip excessive preambles ("Great question!", "Of course!") — get to the answer.
@@ -111,10 +108,9 @@ Location: \~/.claude/CLAUDE.md Scope: Loaded for every Claude Code session on th
 
 
 
-\### Out of Scope / Things to Avoid
+### Out of Scope / Things to Avoid
 
 * Don't suggest unsigned third-party MCP servers, marketplaces, or plugins for repos containing regulatory or financial-services content. 
 * Stick to official Anthropic marketplace + Context7.
 * Don't use emoji in technical output unless explicitly requested.
 * Don't reproduce copyrighted spec text verbatim — paraphrase and cite.
-
