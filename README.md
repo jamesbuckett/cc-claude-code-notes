@@ -10,14 +10,14 @@ Personal install guide for Claude Code.
 
 ## Chrome
 
-### Claude Settings
+### Settings
 
 - Font: Anthropic Sans
 
 
 ## Windows 
 
-### winget Packages
+### Installation
 
 ```powershell
 winget install -e --id Anthropic.Claude -e -s winget
@@ -25,7 +25,7 @@ winget install -e --id Anthropic.Claude -e -s winget
 
 ## Linux
 
-### Claude prerequisites
+### Pre-requisites
 
 ```bash
 sudo apt update && sudo apt install -y \
@@ -48,25 +48,13 @@ node --version
 npm --version
 ```
 
-Authenticate `gh` and configure git to use it as a credential helper:
-
-```bash
-gh auth login
-gh auth setup-git
-gh auth status
-```
-
-Pick **GitHub.com → HTTPS → Login with a web browser** and follow the device-code prompt.
-
-### Claude Installation 
+### Lunix Installation 
 
 ```bash
 curl -fsSL https://claude.ai/install.sh | bash
 ```
 
-### Claude Configuration 
-
-#### Status line
+### Linux Configuration 
 
 ##### `settings.json`
 
@@ -590,33 +578,42 @@ exit 0
 
 </details>
 
-#### Claude Plugins
+#### Claude Code Plugins
 
 - `claude-md-management`
 - `frontend-design`
 - `playwright`
 - `superpowers`
 
-### Command line
+### Claude Code Command line
 
-- Set Model: Opus 4.1 with 1M context
+- Set Model: Opus 4.7 with 1M context
 - Set Effort: 
     * Normal Work: `xhigh` 
     * Extream Work: `max`
 
-### Git
+### Configure Git
 
 For each repository:
 
 ```bash
-gh auth login
 git config --global user.name "jamesbuckett"
 git config --global user.email "james.buckett@gmail.com"
 git config --global credential.helper 'cache --timeout=3600'
 git config credential.helper store
 ```
 
-### `.bashrc`
+Authenticate `gh` and configure git to use it as a credential helper:
+
+```bash
+gh auth login
+gh auth setup-git
+gh auth status
+```
+
+Pick **GitHub.com → HTTPS → Login with a web browser** and follow the device-code prompt.
+
+### `bashrc`
 
 ```bash
 vi ~/.bashrc
@@ -624,14 +621,14 @@ vi ~/.bashrc
 
 ```bash
 #######################################################################################################
-## General Alias
+## Claude Code Alias
 #######################################################################################################
 
 alias c="claude --permission-mode bypassPermissions"
 # alias claude="claude --permission-mode plan"
 
 #######################################################################################################
-## API Keys
+## Anthropic API Keys
 #######################################################################################################
 
 # [ANTHROPIC_API_KEY](https://platform.claude.com/settings/workspaces/default/keys)
