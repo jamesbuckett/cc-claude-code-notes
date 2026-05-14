@@ -578,6 +578,8 @@ exit 0
 
 </details>
 
+### Claude Code Configuration
+
 #### Claude Code Plugins
 
 - `claude-md-management`
@@ -592,7 +594,7 @@ exit 0
     * Normal Work: `xhigh` 
     * Extream Work: `max`
 
-### Configure Git
+### Git Configuration
 
 For each repository:
 
