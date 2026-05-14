@@ -4,7 +4,21 @@ Personal install guide for Claude Code.
 
 ## Contents
 
-- [Claude](#claude)
+- [Chrome](#chrome)
+  - [Chrome Settings](#chrome-settings)
+- [Windows](#windows)
+  - [Windows Installation](#windows-installation)
+- [Linux](#linux)
+  - [Linux Pre-requisites](#linux-pre-requisites)
+  - [Linux Installation](#linux-installation)
+  - [Linux Configuration](#linux-configuration)
+    - [`settings.json`](#settingsjson)
+    - [`statusline.sh`](#statuslinesh)
+  - [Claude Code Configuration](#claude-code-configuration)
+    - [Claude Code Plugins](#claude-code-plugins)
+  - [Claude Code Command line](#claude-code-command-line)
+  - [Git Configuration](#git-configuration)
+  - [`bashrc`](#bashrc)
 
 ---
 
