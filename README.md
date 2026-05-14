@@ -1,13 +1,13 @@
 # Claude Code
 
-Personal install guide for Claude Code on Windows, Linux, and macOS, plus the cross-OS configuration that follows.
+Personal install guide for Claude Code on Windows, Ubuntu 26.04 LTS, and macOS, plus the cross-OS configuration that follows.
 
 ## Contents
 
 - [Chrome preferences](#chrome-preferences)
 - [Install](#install)
   - [Windows](#windows)
-  - [Linux](#linux)
+  - [Ubuntu 26.04](#ubuntu-2604)
   - [macOS](#macos)
 - [Claude Code setup](#claude-code-setup)
   - [`settings.json`](#settingsjson)
@@ -36,12 +36,21 @@ winget install -e --id Anthropic.Claude -e -s winget
 
 After install, continue at [Claude Code setup](#claude-code-setup).
 
-### Linux
+### Ubuntu 26.04
 
-**Prerequisites (Debian/Ubuntu).** Required tooling:
+Tested on a fresh Ubuntu 26.04 LTS install (amd64 or arm64). Other Debian-family distros likely work, but commands below assume `apt` and `dpkg`.
+
+**Enable the `universe` repository.** Default on Desktop, sometimes missing on Server / minimal cloud images. Several packages below live in `universe`:
 
 ```bash
-sudo apt update && sudo apt install -y \
+sudo add-apt-repository universe -y
+sudo apt update
+```
+
+**Required tooling.** Claude Code itself only needs `curl`, `git`, `jq`, and Node — the rest are commonly-used adjuncts:
+
+```bash
+sudo apt install -y \
   build-essential git curl wget jq unzip zip tar \
   ca-certificates gnupg \
   python3-venv python3-pip pipx python-is-python3 \
@@ -49,15 +58,39 @@ sudo apt update && sudo apt install -y \
   pre-commit direnv
 ```
 
-Optional CLI niceties (not required by Claude Code):
+Put `~/.local/bin` on PATH (Ubuntu 26.04 enforces PEP 668 — `pip install` outside a venv is blocked, so tools land in user space via `pipx`):
+
+```bash
+pipx ensurepath
+exec $SHELL -l
+```
+
+**Optional CLI niceties:**
 
 ```bash
 sudo apt install -y bat fd-find ripgrep fzf htop duf graphviz plantuml pandoc
 ```
 
-On Ubuntu, `bat` and `fd-find` install as `batcat` / `fdfind` due to binary-name collisions — symlink or alias if you want the upstream names.
+On Ubuntu, `bat` and `fd-find` ship as `batcat` / `fdfind` due to binary-name collisions with Debian's `bat`/`fd`. Alias if you want the upstream names:
 
-Install **nvm** and the latest LTS Node:
+```bash
+echo "alias bat='batcat'" >> ~/.bashrc
+echo "alias fd='fdfind'"  >> ~/.bashrc
+```
+
+**GitHub CLI from the upstream apt repository** (more current than the `universe` build, signed by GitHub's key):
+
+```bash
+sudo mkdir -p -m 755 /etc/apt/keyrings
+wget -qO- https://cli.github.com/packages/githubcli-archive-keyring.gpg | \
+  sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null
+sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | \
+  sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+sudo apt update && sudo apt install -y gh
+```
+
+**nvm and the latest LTS Node** (do not use Ubuntu's apt Node — it lags and pulls in global-install footguns):
 
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
