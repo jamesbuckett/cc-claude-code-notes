@@ -1,45 +1,44 @@
 # Claude Code
 
-Personal install guide for Claude Code.
+Personal install guide for Claude Code on Windows, Linux, and macOS, plus the cross-OS configuration that follows.
 
 ## Contents
 
-- [Chrome](#chrome)
-  - [Chrome Settings](#chrome-settings)
-- [Windows](#windows)
-  - [Windows Installation](#windows-installation)
-- [Linux](#linux)
-  - [Linux Pre-requisites](#linux-pre-requisites)
-  - [Linux Installation](#linux-installation)
-  - [Linux Configuration](#linux-configuration)
-    - [`settings.json`](#settingsjson)
-    - [`statusline.sh`](#statuslinesh)
-  - [Claude Code Configuration](#claude-code-configuration)
-    - [Claude Code Plugins](#claude-code-plugins)
-  - [Claude Code Command line](#claude-code-command-line)
-  - [Git Configuration](#git-configuration)
-  - [`bashrc`](#bashrc)
+- [Chrome preferences](#chrome-preferences)
+- [Install](#install)
+  - [Windows](#windows)
+  - [Linux](#linux)
+  - [macOS](#macos)
+- [Claude Code setup](#claude-code-setup)
+  - [`settings.json`](#settingsjson)
+  - [`statusline.sh`](#statuslinesh)
+  - [Plugins](#plugins)
+  - [Model and effort](#model-and-effort)
+- [Git and GitHub](#git-and-github)
+- [Shell environment](#shell-environment)
+- [Verify install](#verify-install)
 
 ---
 
-## Chrome
-
-### Chrome Settings
+## Chrome preferences
 
 - Font: Anthropic Sans
 
+---
 
-## Windows 
+## Install
 
-### Windows Installation
+### Windows
 
 ```powershell
 winget install -e --id Anthropic.Claude -e -s winget
 ```
 
-## Linux
+After install, continue at [Claude Code setup](#claude-code-setup).
 
-### Linux Pre-requisites
+### Linux
+
+**Prerequisites (Debian/Ubuntu).** Required tooling:
 
 ```bash
 sudo apt update && sudo apt install -y \
@@ -47,51 +46,92 @@ sudo apt update && sudo apt install -y \
   ca-certificates gnupg \
   python3-venv python3-pip pipx python-is-python3 \
   openssh-client bash-completion \
-  bat fd-find ripgrep fzf htop duf graphviz plantuml pandoc \
   pre-commit direnv
 ```
 
-Install `nvm` and the latest LTS Node:
+Optional CLI niceties (not required by Claude Code):
+
+```bash
+sudo apt install -y bat fd-find ripgrep fzf htop duf graphviz plantuml pandoc
+```
+
+On Ubuntu, `bat` and `fd-find` install as `batcat` / `fdfind` due to binary-name collisions — symlink or alias if you want the upstream names.
+
+Install **nvm** and the latest LTS Node:
 
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
-source ~/.bashrc
+exec $SHELL -l            # restart the shell so NVM_DIR loads cleanly
 nvm install --lts
 nvm use --lts
 node --version
 npm --version
 ```
 
-### Linux Installation 
+**Install Claude Code.** Inspect the install script before running it:
 
 ```bash
-curl -fsSL https://claude.ai/install.sh | bash
+curl -fsSL https://claude.ai/install.sh -o /tmp/claude-install.sh
+less /tmp/claude-install.sh
+bash /tmp/claude-install.sh
 ```
 
-### Linux Configuration 
+(The upstream one-liner `curl -fsSL https://claude.ai/install.sh | bash` works if you trust the source.)
 
-##### `settings.json`
+After install, continue at [Claude Code setup](#claude-code-setup).
+
+### macOS
+
+Same install script as Linux. Prerequisites via Homebrew:
 
 ```bash
-cp ~/.claude/settings.json ~/.claude/settings.json-original
-vi ~/.claude/settings.json
+brew install jq git gh nvm
+curl -fsSL https://claude.ai/install.sh -o /tmp/claude-install.sh
+less /tmp/claude-install.sh
+bash /tmp/claude-install.sh
 ```
 
-```json
+After install, continue at [Claude Code setup](#claude-code-setup).
+
+---
+
+## Claude Code setup
+
+The following applies on any OS. First, run Claude Code once so it seeds `~/.claude/`:
+
+```bash
+claude --version
+```
+
+### `settings.json`
+
+Back up the default before editing (no-op if it doesn't exist yet):
+
+```bash
+[ -f ~/.claude/settings.json ] && cp ~/.claude/settings.json ~/.claude/settings.json-original
+```
+
+Write the statusline wiring with a heredoc — avoids paste/auto-indent corruption:
+
+```bash
+cat > ~/.claude/settings.json <<'EOF'
 {
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.sh"
   }
 }
+EOF
 ```
 
-Paste with `Ctrl+Shift+V`.
+### `statusline.sh`
 
-##### `statusline.sh`
+Fetch a pinned upstream release rather than pasting the script body:
 
 ```bash
-vi ~/.claude/statusline.sh
+curl -fsSL https://raw.githubusercontent.com/daniel3303/ClaudeCodeStatusLine/v1.4.2/statusline.sh \
+  -o ~/.claude/statusline.sh
+chmod +x ~/.claude/statusline.sh
 ```
 
 <details>
@@ -592,34 +632,32 @@ exit 0
 
 </details>
 
-### Claude Code Configuration
-
-#### Claude Code Plugins
+### Plugins
 
 - `claude-md-management`
 - `frontend-design`
 - `playwright`
 - `superpowers`
 
-### Claude Code Command line
+### Model and effort
 
-- Set Model: Opus 4.7 with 1M context
-- Set Effort: 
-    * Normal Work: `xhigh` 
-    * Extream Work: `max`
+- Model: Opus 4.7 with 1M context
+- Effort:
+  - Normal work: `xhigh`
+  - Extreme work: `max`
 
-### Git Configuration
+---
 
-For each repository:
+## Git and GitHub
+
+Set identity once globally:
 
 ```bash
 git config --global user.name "jamesbuckett"
 git config --global user.email "james.buckett@gmail.com"
-git config --global credential.helper 'cache --timeout=3600'
-git config credential.helper store
 ```
 
-Authenticate `gh` and configure git to use it as a credential helper:
+For credential storage, use `gh` — it configures a credential helper backed by your GitHub authentication, which is safer than `credential.helper store` (plaintext on disk) or `cache` (short-lived in-memory):
 
 ```bash
 gh auth login
@@ -629,23 +667,51 @@ gh auth status
 
 Pick **GitHub.com → HTTPS → Login with a web browser** and follow the device-code prompt.
 
-### `bashrc`
+For non-GitHub remotes, prefer a system credential helper: `libsecret` (Linux), `osxkeychain` (macOS), or `wincred` (Windows) — not `store`.
+
+---
+
+## Shell environment
+
+Add the following to `~/.bashrc` (or `~/.zshrc` on macOS):
 
 ```bash
-vi ~/.bashrc
+#######################################################################################################
+## Claude Code aliases
+#######################################################################################################
+
+# Default: plan mode prompts before every tool action.
+alias claude="claude --permission-mode plan"
+
+# Short alias; inherits plan mode.
+alias c="claude"
+
+# Bypass-all-permissions — disposable sandboxes only.
+# bypassPermissions runs every tool without prompting; understand the
+# blast radius before invoking this in a repo you care about.
+alias cyolo="claude --permission-mode bypassPermissions"
 ```
 
+**Anthropic API key (optional).** Claude Code uses OAuth via your Pro/Max subscription by default. Setting `ANTHROPIC_API_KEY` switches billing to the API — only set it if that is what you want. Do not paste the literal key into `.bashrc`; load it from a secret manager:
+
 ```bash
-#######################################################################################################
-## Claude Code Alias
-#######################################################################################################
+# Example using pass (passwordstore.org). Substitute your secret manager of choice.
+# export ANTHROPIC_API_KEY="$(pass anthropic/api-key 2>/dev/null)"
+```
 
-alias c="claude --permission-mode bypassPermissions"
-# alias claude="claude --permission-mode plan"
+Reload the shell after edits:
 
-#######################################################################################################
-## Anthropic API Keys
-#######################################################################################################
+```bash
+exec $SHELL -l
+```
 
-# [ANTHROPIC_API_KEY](https://platform.claude.com/settings/workspaces/default/keys)
-export ANTHROPIC_API_KEY="XXX"
+---
+
+## Verify install
+
+```bash
+claude --version    # confirms the binary is on PATH
+claude              # launches; run /login if not already authenticated
+```
+
+Inside Claude Code, the statusline should show model, context usage, and 5h/7d rate-limit bars. If blank, check that `~/.claude/statusline.sh` is executable (`ls -l ~/.claude/statusline.sh`) and that `settings.json` points at it.
