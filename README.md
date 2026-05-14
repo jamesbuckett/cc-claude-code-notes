@@ -1,12 +1,12 @@
 # Claude Code
 
-Personal install guide for Claude Code on Windows, Ubuntu 26.04 LTS, and macOS, plus the cross-OS configuration that follows.
+Personal install guide for Claude Code on Windows 11, Ubuntu 26.04 LTS, and macOS, plus the cross-OS configuration that follows.
 
 ## Contents
 
 - [Chrome preferences](#chrome-preferences)
 - [Install](#install)
-  - [Windows](#windows)
+  - [Windows 11](#windows-11)
   - [Ubuntu 26.04](#ubuntu-2604)
   - [macOS](#macos)
 - [Claude Code setup](#claude-code-setup)
@@ -28,10 +28,54 @@ Personal install guide for Claude Code on Windows, Ubuntu 26.04 LTS, and macOS, 
 
 ## Install
 
-### Windows
+### Windows 11
+
+Claude Code's tooling assumes a Unix shell, so **WSL2 with Ubuntu** is the most ergonomic path. Native Windows works for quick PowerShell-only use.
+
+**Option A — WSL2 with Ubuntu 26.04 (recommended).** From an elevated PowerShell:
 
 ```powershell
-winget install -e --id Anthropic.Claude -e -s winget
+wsl --install -d Ubuntu-26.04   # use -d Ubuntu for the default LTS image
+```
+
+Reboot if prompted, complete the Ubuntu user setup, then follow the [Ubuntu 26.04 instructions](#ubuntu-2604) inside the Ubuntu shell.
+
+Pair this with **Windows Terminal** (preinstalled on Windows 11) and **VS Code with the WSL extension** for editing files inside WSL.
+
+**Option B — Native Windows install.** winget ships with Windows 11 22H2+. PowerShell 5.1 is the default; PowerShell 7+ is recommended:
+
+```powershell
+winget install --id Anthropic.Claude -e          # Or: irm https://claude.ai/install.ps1 | iex
+winget install --id Git.Git -e
+winget install --id GitHub.cli -e
+winget install --id Microsoft.PowerShell -e      # PowerShell 7+ (separate from built-in 5.1)
+```
+
+For Node, use a version manager (do not rely on a system-wide installer):
+
+```powershell
+# x64:
+winget install --id CoreyButler.NVMforWindows -e
+
+# ARM64 (e.g., Snapdragon laptops) — nvm-windows is x64-only; fnm supports both archs:
+winget install --id Schniz.fnm -e
+```
+
+Then install LTS Node in a new PowerShell window:
+
+```powershell
+nvm install lts ; nvm use lts    # nvm-windows
+# or
+fnm install --lts ; fnm use lts  # fnm
+node --version
+npm --version
+```
+
+Set git line-ending handling and long-path support before cloning anything:
+
+```powershell
+git config --global core.autocrlf input
+git config --global core.longpaths true
 ```
 
 After install, continue at [Claude Code setup](#claude-code-setup).
