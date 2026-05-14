@@ -1,11 +1,11 @@
-Global User Memory — James Buckett
+# Global User Memory — James Buckett
 
-Location: \~/.claude/CLAUDE.md Scope: Loaded for every Claude Code session on this machine, across all projects. Purpose: Cross-cutting preferences, role context, and conventions that apply to everything.
+*Public reference copy.* The canonical file lives at `~/.claude/CLAUDE.md` and is auto-loaded by Claude Code for every session on this machine. It is checked in here so readers can see the global preferences, role context, and conventions the author runs with. A frozen snapshot of the previous version is preserved at `CLAUDE.md-original`.
 
-
+> Note: because this file sits at the repo root with the magic name `CLAUDE.md`, Claude Code also loads it as project context for sessions in this repo — the global preferences below are effectively applied twice when working here. That is intentional for the reference-copy use case.
 
 ## Role and Context
-* Executive Director, Product Management — Infrastructure Platforms, JP Morgan Chase \& Co.
+* Executive Director, Product Management — Infrastructure Platforms, JP Morgan Chase & Co.
 * Work intersects product management, enterprise security architecture, cloud infrastructure, and platform engineering.
 * Strong orientation toward financial-services regulatory frameworks (PCI-DSS 4.0, SOX, DORA, SWIFT CSCF, MAS TRM, APRA CPS 234).
 * Visual learner — prefer diagrams, tables, and structured artefacts over long prose where possible.
@@ -76,17 +76,17 @@ Location: \~/.claude/CLAUDE.md Scope: Loaded for every Claude Code session on th
 * After completing any task, automatically commit with a descriptive message and push to origin. 
 * Only commit files relevant to the change (not dev artifacts, screenshots, or node_modules).
 
-  ## Visual Validation
+## Visual Validation
 * For any frontend/HTML changes, validate visually using the Playwright screenshot script (screenshot.mjs) before committing.
 * Capture desktop, mobile, and dark mode where relevant.
 * Note: Playwright MCP browser is unstable - prefer the local Node script with installed Playwright.
 
-  ## README Standards
+## README Standards
 * When creating/updating READMEs, always include:
- * (1) a fresh hero screenshot
- * (2) validated shields.io badges (check URLs return 200, not 404)
- * (3) MIT LICENSE file if missing
- * (4) ensure deployed URLs are live before linking
+  * (1) a fresh hero screenshot
+  * (2) validated shields.io badges (check URLs return 200, not 404)
+  * (3) MIT LICENSE file if missing
+  * (4) ensure deployed URLs are live before linking
 
 ## Environment Constraints
 * sudo commands require user execution (TTY auth) - hand them off rather than retrying
