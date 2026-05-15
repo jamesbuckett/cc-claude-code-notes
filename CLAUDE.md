@@ -4,6 +4,10 @@
 
 > Note: because this file sits at the repo root with the magic name `CLAUDE.md`, Claude Code also loads it as project context for sessions in this repo — the global preferences below are effectively applied twice when working here. That is intentional for the reference-copy use case.
 
+---
+
+# CLAUDE.md
+
 ## Role and Context
 * Executive Director, Product Management — Infrastructure Platforms, JP Morgan Chase & Co.
 * Work intersects product management, enterprise security architecture, cloud infrastructure, and platform engineering.
@@ -21,7 +25,6 @@
 * Treat every example as if it will end up in a regulated environment. 
 * Never paste secrets into examples — use ${VAR} placeholders or reference an external secret manager (Vault, AWS Secrets Manager, External Secrets Operator).
 * For financial services examples, assume data residency matters — call out APAC regional constraints (Singapore MAS, Australia APRA, Indonesia OJK PDP, India RBI) when relevant.
-
 
 ## Architectural Frameworks (default to these)
 * When describing, designing, or reviewing systems architecture, default to C4 + CALM as a complementary pair: 
@@ -73,6 +76,7 @@
 * Don't reproduce copyrighted spec text verbatim — paraphrase and cite.
 
 ## Git Workflow
+* When starting a new Claude Code session automatically do a git pull
 * After completing any task, automatically commit with a descriptive message and push to origin. 
 * Only commit files relevant to the change (not dev artifacts, screenshots, or node_modules).
 
@@ -83,10 +87,10 @@
 
 ## README Standards
 * When creating/updating READMEs, always include:
-  * (1) a fresh hero screenshot
-  * (2) validated shields.io badges (check URLs return 200, not 404)
-  * (3) MIT LICENSE file if missing
-  * (4) ensure deployed URLs are live before linking
+  * A fresh hero screenshot
+  * Validated shields.io badges (check URLs return 200, not 404)
+  * A MIT LICENSE file if missing
+  * Ensure deployed URLs are live before linking
 
 ## Environment Constraints
 * sudo commands require user execution (TTY auth) - hand them off rather than retrying
