@@ -1,4 +1,4 @@
-# Claude Code
+# CLAUDE CODE Install Guide
 
 Personal install guide for Claude Code on Windows 11, Ubuntu 26.04 LTS, and macOS, plus the cross-OS configuration that follows.
 
