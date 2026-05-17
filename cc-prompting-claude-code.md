@@ -6,7 +6,7 @@
 
 ## My Notes
 * Use Plugin `skill-creator`
-* 
+  
 ### Personal Skill Ideas
 * Build a Educational Website to learn the theory of a topic
 * Build a Educational Tutorial Website to learn the practical of a topic
