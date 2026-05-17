@@ -1,4 +1,4 @@
-# CLAUDE CODE Notes
+# CLAUDE CODE Slash Commands
 
 ## /doctor
 * Diagnose and verify your Claude Code installation and settings
