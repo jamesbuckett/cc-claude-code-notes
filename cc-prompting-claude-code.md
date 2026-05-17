@@ -13,6 +13,8 @@
 ## Personal Skill Ideas
 * Build a Educational Website to learn the theory of a topic
 * Build a Educational Tutorial Website to learn the practical of a topic
+* Improve this Educational Website
+* Imporve this Tutorial Website
 * Prepare for Weekly One on One
 * Layers
 *   Skills = Applications
@@ -31,13 +33,16 @@ For each one, suggest a skill name and what context it would need.
 * Skill
   * Level 1: Metadata - Always Loaded - Name and Description
   * Level 2: Instructions - When Skill Triggered - SKILL.md with instructions and Guidence
-  * Level 3: Resources - As needed - Bundled script files 
-
-
+  * Level 3: Resources - As needed - Bundled script files
+   * Expand this section
+   * Access to Tools
 
 ---
 
-# Rule #3 - Prompt Skills not Claude 
+# Rule #3 - Build Composable Skills 
+* Small, Focused and Reusable skills
+* Lets Skills call Skills
+* 
 
 
 ---
