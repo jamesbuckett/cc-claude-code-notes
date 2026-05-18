@@ -38,6 +38,7 @@
 - /plugin marketplace add EveryInc/compound-engineering-plugin
 - /plugin install compound-engineering
 
+[Steps](https://github.com/EveryInc/compound-engineering-plugin/blob/main/plugins/compound-engineering/README.md)
 - Plan = ce-plan
 - Execute - ce-work
 - Review - ce-code-review
