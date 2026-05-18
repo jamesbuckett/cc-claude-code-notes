@@ -73,12 +73,9 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 ## 6. Tools
 
 ### Exa MCP Server
-
 **Purpose:** Exa is a neural/semantic web search and crawling MCP server. 
 Use it when you need higher-signal results than a generic search engine — code lookups, company/people research, dated/filtered queries, or clean-markdown page reads.
-Source: https://github.com/exa-labs/exa-mcp-server
 
 ### Firecrawl
-
 **Purpose**
 Give Claude Code live web access — search, scrape, crawl, map, and browser interaction — for tasks where training data is stale or insufficient (regulator updates, vendor docs, CVE feeds, ZTA reference material, APAC compliance notices).
