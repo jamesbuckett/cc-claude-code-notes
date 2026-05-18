@@ -17,6 +17,11 @@ Personal notes on using Claude Code — install steps, plugin list, prompting ap
 
 - [files/CLAUDE.md](files/CLAUDE.md) — global behavioral guidelines that get merged into every project.
 - [files/settings.json](files/settings.json) — Claude Code `settings.json` with plugins, status line, and the session-start `git pull` hook.
-- [files/skills/](files/skills/) — personal skills (currently empty).
+
+### Skills
+
+Personal Claude Code skills live in [files/skills/](files/skills/). For the philosophy behind skills (small, composable, edited from chat history), see [Prompting Claude Code](cc-prompting-claude-code.md).
+
+_No personal skills published yet._
 
 ---
