@@ -72,10 +72,38 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 
 ## 6. Tools
 
-### Exa MCP Server
-**Purpose:** Exa is a neural/semantic web search and crawling MCP server. 
-Use it when you need higher-signal results than a generic search engine — code lookups, company/people research, dated/filtered queries, or clean-markdown page reads.
+This section describes MCP servers and external tools available to Claude Code in this project. For each tool, prefer the listed use cases over generic alternatives (e.g., default web search).
 
-### Firecrawl
-**Purpose**
-Give Claude Code live web access — search, scrape, crawl, map, and browser interaction — for tasks where training data is stale or insufficient (regulator updates, vendor docs, CVE feeds, ZTA reference material, APAC compliance notices).
+### 6.1 Exa MCP Server
+
+**Purpose:** Neural/semantic web search and page retrieval. Returns higher-signal results than keyword search engines, with clean markdown extraction.
+
+**Use when:**
+- Performing **code lookups** across public repositories or technical documentation
+- Conducting **company or people research** (profiles, affiliations, recent activity)
+- Running **dated or filtered queries** where recency or domain filtering matters
+- Reading a **specific page as clean markdown** for downstream summarization or analysis
+
+**Do not use when:**
+- A simple keyword search or direct URL fetch is sufficient
+- The query is fully answerable from training data or repo context
+
+---
+
+### 6.2 Firecrawl
+
+**Purpose:** Live web access for search, scrape, crawl, site mapping, and browser interaction. Use when training data is stale or insufficient for the task.
+
+**Use when:**
+- Checking **regulator updates** (e.g., MAS, APRA, HKMA, DORA notices)
+- Pulling **vendor documentation** for current product behaviour
+- Reviewing **CVE feeds** or security advisories
+- Gathering **Zero Trust Architecture (ZTA) reference material** (NIST 800-207, CISA ZTMM, vendor whitepapers)
+- Retrieving **APAC compliance notices** or other time-sensitive regulatory content
+- **Crawling or mapping** a site when more than a single page is needed
+
+**Do not use when:**
+- Exa returns sufficient results for a single-page lookup (Exa is cheaper for clean reads)
+- The target requires authentication not configured in this environment
+
+---
