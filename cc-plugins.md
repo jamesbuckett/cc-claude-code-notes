@@ -18,7 +18,7 @@
 - [Issue](https://github.com/JuliusBrussee/caveman/issues/353)
   - Uninstall: `npx -y github:JuliusBrussee/caveman -- --uninstall`
 
-### [Exa MCP](https://exa.ai/mcp) - Better Web Search 
+### [Exa](https://exa.ai/mcp) - Better Web Search 
 - Install: `claude mcp add --transport http exa https://mcp.exa.ai/mcp`
 - Export EXA_API_KEY="xxx"
 - Usage:
@@ -28,7 +28,7 @@
   - "Compare Notion vs Coda vs Slite"
 
 
-### [Firecrawl Plugin for Claude Code](https://github.com/firecrawl/firecrawl-claude-plugin) - Get the Web Resources
+### [Firecrawl](https://github.com/firecrawl/firecrawl-claude-plugin) - Get the Web Resources
 - Install CLI: `npm install -g firecrawl-cli`
 - 'firecrawl login --api-key "fc-YOUR-API-KEY"'
   - Login successful!
