@@ -12,3 +12,4 @@
 
 - [caveman](https://github.com/juliusbrussee/caveman)
   - `curl -fsSL https://raw.githubusercontent.com/JuliusBrussee/caveman/main/install.sh | bash`
+  - `run /caveman` in Claude Code
