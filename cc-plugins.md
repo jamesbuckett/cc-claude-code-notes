@@ -38,6 +38,12 @@
 - /plugin marketplace add EveryInc/compound-engineering-plugin
 - /plugin install compound-engineering
 
+- Plan
+- Execute
+- Review
+- Compound
+- Repeat
+
 Compound engineering inverts this. 80% is in planning and review, 20% is in execution:
 - Plan thoroughly before writing code with `/ce-brainstorm` and `/ce-plan`
 - Review to catch issues and calibrate judgment with `/ce-code-review` and `/ce-doc-review`
