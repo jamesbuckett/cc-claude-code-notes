@@ -8,6 +8,7 @@
   - See below for CLI and API key   
 - `playwright`
 - `skill-creator`
+- `security-guidance`
 - `superpowers`
 
 ## Other Plugins
