@@ -24,6 +24,15 @@ Personal Claude Code skills live in [files/skills/](files/skills/). For the phil
 
 _No personal skills published yet._
 
+**Planned skill ideas:**
+
+- Build an educational website to learn the theory of a topic.
+- Build an educational tutorial website to learn the practical side of a topic.
+- Improve an existing educational website.
+- Improve an existing tutorial website.
+- Prepare for a weekly one-on-one.
+- Rip a YouTube video, extract the transcript, summarize it, and write to `youtube.md`.
+
 ---
 
 ## Prompting Takeaways
