@@ -39,6 +39,9 @@
 - /plugin marketplace add EveryInc/compound-engineering-plugin
 - /plugin install compound-engineering
 
+- Before building: /compound-engineering:ce-brainstorm or /compound-engineering:ce-plan
+- After building: /compound-engineering:ce-commit-push-pr (already-installed; replaces your manual git workflow)
+
 [Steps](https://github.com/EveryInc/compound-engineering-plugin/blob/main/plugins/compound-engineering/README.md)
 - Plan = ce-plan
 - Execute - ce-work
@@ -51,3 +54,10 @@ Compound engineering inverts this. 80% is in planning and review, 20% is in exec
 - Review to catch issues and calibrate judgment with `/ce-code-review` and `/ce-doc-review`
 - Codify knowledge so it is reusable with `/ce-compound`
 - Keep quality high so future changes are easy
+
+### BuildPartner.ai
+
+```CC
+Install BuildPartner.ai for me. My token is sk_2ced7921c8f74546a52a048d.
+Run: curl -fsSL buildpartner.ai/install.sh | sh -s -- --token sk_2ced7921c8f74546a52a048d
+```
