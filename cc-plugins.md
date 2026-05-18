@@ -14,4 +14,4 @@
   - Install: `curl -fsSL https://raw.githubusercontent.com/JuliusBrussee/caveman/main/install.sh | bash`
     - `run /caveman` in Claude Code
   - [Issue](https://github.com/JuliusBrussee/caveman/issues/353)
-  - Uninstall: `npx -y github:JuliusBrussee/caveman -- --uninstall`
+    - Uninstall: `npx -y github:JuliusBrussee/caveman -- --uninstall`
