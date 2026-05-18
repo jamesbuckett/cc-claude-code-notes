@@ -38,10 +38,10 @@
 - /plugin marketplace add EveryInc/compound-engineering-plugin
 - /plugin install compound-engineering
 
-- Plan
-- Execute
-- Review
-- Compound
+- Plan = ce-plan
+- Execute - ce-work
+- Review - ce-code-review
+- Compound - ce-compund
 - Repeat
 
 Compound engineering inverts this. 80% is in planning and review, 20% is in execution:
