@@ -19,7 +19,7 @@
   - [Issue](https://github.com/JuliusBrussee/caveman/issues/353)
     - Uninstall: `npx -y github:JuliusBrussee/caveman -- --uninstall`
 
-### [Exa MCP](https://exa.ai/mcp)
+### [Exa MCP](https://exa.ai/mcp) - Better Web Search 
 - Install: `claude mcp add --transport http exa https://mcp.exa.ai/mcp`
 - Export EXA_API_KEY="xxx"
 - Usage:
@@ -29,8 +29,18 @@
   - "Compare Notion vs Coda vs Slite"
 
 
-### [Firecrawl Plugin for Claude Code](https://github.com/firecrawl/firecrawl-claude-plugin)
+### [Firecrawl Plugin for Claude Code](https://github.com/firecrawl/firecrawl-claude-plugin) - Get the Web Resources
 - Install CLI: `npm install -g firecrawl-cli`
 - 'firecrawl login --api-key "fc-YOUR-API-KEY"'
   - Login successful!
 - Export FIRECRAWL_API_KEY=fc-YOUR-API-KEY
+
+### [Compound Engineering](https://github.com/EveryInc/compound-engineering-plugin)
+- /plugin marketplace add EveryInc/compound-engineering-plugin
+- /plugin install compound-engineering
+
+Compound engineering inverts this. 80% is in planning and review, 20% is in execution:
+- Plan thoroughly before writing code with `/ce-brainstorm` and `/ce-plan`
+- Review to catch issues and calibrate judgment with `/ce-code-review` and `/ce-doc-review`
+- Codify knowledge so it is reusable with `/ce-compound`
+- Keep quality high so future changes are easy
