@@ -295,3 +295,16 @@ claude              # launches; run /login if not already authenticated
 ```
 
 Inside Claude Code, the statusline should show model, context usage, and 5h/7d rate-limit bars. If blank, check that `~/.claude/statusline.sh` is executable (`ls -l ~/.claude/statusline.sh`) and that `settings.json` points at it.
+
+## [CodeBurn](https://github.com/getagentseal/codeburn)
+
+```bash
+npm install -g codeburn
+```
+
+```bash
+codeburn
+codeburn optimize
+```
+
+Copy and paste codeburn optimize into Claude Code.
