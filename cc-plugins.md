@@ -12,12 +12,11 @@
 
 ## Other Plugins
 
-### Caveman
-- [caveman](https://github.com/juliusbrussee/caveman)
-  - Install: `curl -fsSL https://raw.githubusercontent.com/JuliusBrussee/caveman/main/install.sh | bash`
-    - `run /caveman` in Claude Code
-  - [Issue](https://github.com/JuliusBrussee/caveman/issues/353)
-    - Uninstall: `npx -y github:JuliusBrussee/caveman -- --uninstall`
+### [Caveman](https://github.com/juliusbrussee/caveman)
+- Install: `curl -fsSL https://raw.githubusercontent.com/JuliusBrussee/caveman/main/install.sh | bash`
+  - `run /caveman` in Claude Code
+- [Issue](https://github.com/JuliusBrussee/caveman/issues/353)
+  - Uninstall: `npx -y github:JuliusBrussee/caveman -- --uninstall`
 
 ### [Exa MCP](https://exa.ai/mcp) - Better Web Search 
 - Install: `claude mcp add --transport http exa https://mcp.exa.ai/mcp`
