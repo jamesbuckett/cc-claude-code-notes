@@ -17,5 +17,6 @@
 ## Resume Work 
 * Quick continue: `claude --continue` picks up exactly where you left off.
 * Manual resume: `claude --resume` opens an interactive menu allowing you to select a specific past session based on start time, summary, or initial prompt.
+  * Name your conversations with /rename to find them easily in /resume later
 
 *End of Section* 
