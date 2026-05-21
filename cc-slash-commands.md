@@ -14,6 +14,9 @@
 * A "no" tells Claude to keep going, with the reason as guidance. 
 * A "yes" clears the goal and records an achieved entry in the transcript.
 
+## /memory
+* Use /memory to view and manage Claude memory
+
 ## Resume Work 
 * Quick continue: `claude --continue` picks up exactly where you left off.
 * Manual resume: `claude --resume` opens an interactive menu allowing you to select a specific past session based on start time, summary, or initial prompt.
