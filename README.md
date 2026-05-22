@@ -41,6 +41,15 @@ Personal skills live under [`files/skills/`](files/skills/) — none published y
     └── skills/
 ```
 
+## Planned Skill Ideas
+
+- Build an educational website to learn the theory of a topic.
+- Build an educational tutorial website to learn the practical side of a topic.
+- Improve an existing educational website.
+- Improve an existing tutorial website.
+- Prepare for a weekly one-on-one.
+- Rip a YouTube video, extract the transcript, summarize it, and write to `youtube.md`.
+
 ## Prompting Takeaways
 
 Distilled from [cc-prompting-claude-code.md](cc-prompting-claude-code.md) — the shift Anthropic engineers make when prompting Claude Code.
