@@ -49,6 +49,7 @@ winget install --id Anthropic.Claude -e          # Or: irm https://claude.ai/ins
 winget install --id Git.Git -e
 winget install --id GitHub.cli -e
 winget install --id Microsoft.PowerShell -e      # PowerShell 7+ (separate from built-in 5.1)
+winget install --id yt-dlp.yt-dlp -e             # YouTube transcript/video downloader (used by skill-rip-youtube)
 ```
 
 For Node, use a version manager (do not rely on a system-wide installer):
@@ -115,6 +116,13 @@ exec $SHELL -l
 sudo apt install -y bat fd-find ripgrep fzf htop duf graphviz plantuml pandoc
 ```
 
+**yt-dlp** (YouTube transcript/video downloader, used by `skill-rip-youtube`). Install via `pipx` to stay PEP 668-compliant and get a more current build than `apt`:
+
+```bash
+pipx install yt-dlp
+yt-dlp --version
+```
+
 On Ubuntu, `bat` and `fd-find` ship as `batcat` / `fdfind` due to binary-name collisions with Debian's `bat`/`fd`. Alias if you want the upstream names:
 
 ```bash
@@ -162,11 +170,13 @@ After install, continue at [Claude Code setup](#claude-code-setup).
 Same install script as Linux. Prerequisites via Homebrew:
 
 ```bash
-brew install jq git gh nvm
+brew install jq git gh nvm yt-dlp
 curl -fsSL https://claude.ai/install.sh -o /tmp/claude-install.sh
 less /tmp/claude-install.sh
 bash /tmp/claude-install.sh
 ```
+
+(`yt-dlp` is the YouTube transcript/video downloader used by `skill-rip-youtube`.)
 
 After install, continue at [Claude Code setup](#claude-code-setup).
 
