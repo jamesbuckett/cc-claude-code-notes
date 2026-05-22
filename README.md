@@ -8,7 +8,7 @@ Personal notes on using Claude Code — install steps, plugin list, prompting ap
 
 ### Guides
 
-- [Install Guide](cc-install.md) — installing Claude Code on Windows 11, Ubuntu, and macOS, plus cross-OS configuration.
+- [Install Guide](cc-install.md) — installing Claude Code on Windows 11, Ubuntu, and macOS, plus cross-OS configuration and adjacent CLI tooling (e.g. `yt-dlp` for the YouTube rip skill).
 - [Plugins](cc-plugins.md) — Anthropic and community plugins I have enabled.
 - [Prompting Claude Code](cc-prompting-claude-code.md) — how Anthropic engineers actually prompt Claude Code (skills, not one-off prompts).
 - [Slash Commands](cc-slash-commands.md) — handy built-in and custom slash commands.
