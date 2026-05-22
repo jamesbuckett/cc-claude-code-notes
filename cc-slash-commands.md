@@ -1,4 +1,4 @@
-# CLAUDE CODE Slash Commands
+# Claude Code Slash Commands
 
 ## /doctor
 * Diagnose and verify your Claude Code installation and settings
@@ -22,4 +22,3 @@
 * Manual resume: `claude --resume` opens an interactive menu allowing you to select a specific past session based on start time, summary, or initial prompt.
   * Name your conversations with /rename to find them easily in /resume later
 
-*End of Section* 

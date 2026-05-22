@@ -1,4 +1,4 @@
-# CLAUDE CODE Install Guide
+# Claude Code Install Guide
 
 Personal install guide for Claude Code on Windows 11, Ubuntu 26.04 LTS, and macOS, plus the cross-OS configuration that follows.
 
@@ -145,7 +145,7 @@ sudo apt update && sudo apt install -y gh
 **nvm and the latest LTS Node** (do not use Ubuntu's apt Node — it lags and pulls in global-install footguns):
 
 ```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
 exec $SHELL -l            # restart the shell so NVM_DIR loads cleanly
 nvm install --lts
 nvm use --lts
@@ -224,9 +224,14 @@ chmod +x ~/.claude/statusline.sh
 
 ### Plugins
 
+See [`cc-plugins.md`](cc-plugins.md) for install commands and notes. Currently enabled:
+
 - `claude-md-management`
 - `frontend-design`
+- `firecrawl`
 - `playwright`
+- `skill-creator`
+- `security-guidance`
 - `superpowers`
 
 ### Model and effort

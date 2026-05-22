@@ -1,63 +1,82 @@
-# Plugins
+# Claude Code Plugins
 
-## Anthropic Plugins
+Plugins I have installed, grouped by author. Anthropic-maintained first, then third-party.
+
+## Anthropic
 
 - `claude-md-management`
 - `frontend-design`
-- `firecrawl`
-  - See below for CLI and API key   
 - `playwright`
 - `skill-creator`
 - `security-guidance`
-- `superpowers`
 
-## Other Plugins
+## Third-party
 
-### [Caveman](https://github.com/juliusbrussee/caveman)
-- Install: `curl -fsSL https://raw.githubusercontent.com/JuliusBrussee/caveman/main/install.sh | bash`
-  - `run /caveman` in Claude Code
-- [Issue](https://github.com/JuliusBrussee/caveman/issues/353)
-  - Uninstall: `npx -y github:JuliusBrussee/caveman -- --uninstall`
+### [superpowers](https://github.com/obie/superpowers) — Obie Fernandez
 
-### [Exa](https://exa.ai/mcp) - Better Web Search 
-- Install: `claude mcp add --transport http exa https://mcp.exa.ai/mcp`
-- Export EXA_API_KEY="xxx"
-- Usage:
-  - "What happened with OpenAI today?"
-  - "Read this blog post and summarize it"
-  - "Recent papers on RAG"
-  - "Compare Notion vs Coda vs Slite"
+A curated bundle of skills (TDD, debugging, brainstorming, code review, etc.) that auto-route based on context.
 
+### [firecrawl](https://github.com/firecrawl/firecrawl-claude-plugin) — Firecrawl
 
-### [Firecrawl](https://github.com/firecrawl/firecrawl-claude-plugin) - Get the Web Resources
-- Install CLI: `npm install -g firecrawl-cli`
-- 'firecrawl login --api-key "fc-YOUR-API-KEY"'
-  - Login successful!
-- Export FIRECRAWL_API_KEY=fc-YOUR-API-KEY
+Web scraping, crawling, and search via the Firecrawl API.
 
-### [Compound Engineering](https://github.com/EveryInc/compound-engineering-plugin)
-- /plugin marketplace add EveryInc/compound-engineering-plugin
-- /plugin install compound-engineering
-
-- Before building: /compound-engineering:ce-brainstorm or /compound-engineering:ce-plan
-- After building: /compound-engineering:ce-commit-push-pr (already-installed; replaces your manual git workflow)
-
-[Steps](https://github.com/EveryInc/compound-engineering-plugin/blob/main/plugins/compound-engineering/README.md)
-- Plan = ce-plan
-- Execute - ce-work
-- Review - ce-code-review
-- Compound - ce-compund
-- Repeat
-
-Compound engineering inverts this. 80% is in planning and review, 20% is in execution:
-- Plan thoroughly before writing code with `/ce-brainstorm` and `/ce-plan`
-- Review to catch issues and calibrate judgment with `/ce-code-review` and `/ce-doc-review`
-- Codify knowledge so it is reusable with `/ce-compound`
-- Keep quality high so future changes are easy
-
-### BuildPartner.ai
-
-```CC
-Install BuildPartner.ai for me. My token is sk_2ced7921c8f74546a52a048d.
-Run: curl -fsSL buildpartner.ai/install.sh | sh -s -- --token sk_2ced7921c8f74546a52a048d
+```bash
+npm install -g firecrawl-cli
+firecrawl login --api-key "fc-YOUR-API-KEY"
+export FIRECRAWL_API_KEY="fc-YOUR-API-KEY"
 ```
+
+### [Exa](https://exa.ai/mcp) — Exa
+
+Higher-quality web search via MCP.
+
+```bash
+claude mcp add --transport http exa https://mcp.exa.ai/mcp
+export EXA_API_KEY="xxx"
+```
+
+Sample prompts once installed:
+
+- "What happened with OpenAI today?"
+- "Read this blog post and summarize it."
+- "Recent papers on RAG."
+- "Compare Notion vs Coda vs Slite."
+
+### [Compound Engineering](https://github.com/EveryInc/compound-engineering-plugin) — Every Inc.
+
+A workflow that flips the usual ratio: ~80% planning and review, ~20% execution.
+
+```text
+/plugin marketplace add EveryInc/compound-engineering-plugin
+/plugin install compound-engineering
+```
+
+Typical loop:
+
+- **Plan** thoroughly before writing code: `/ce-brainstorm`, `/ce-plan`
+- **Execute**: `/ce-work`
+- **Review** to catch issues and calibrate judgment: `/ce-code-review`, `/ce-doc-review`
+- **Compound** — codify what was learned so it stays reusable: `/ce-compound`
+- Repeat. Use `/ce-commit-push-pr` in place of the manual git workflow.
+
+See the [upstream README](https://github.com/EveryInc/compound-engineering-plugin/blob/main/plugins/compound-engineering/README.md) for full command reference.
+
+### [Caveman](https://github.com/JuliusBrussee/caveman) — Julius Brussee
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/JuliusBrussee/caveman/main/install.sh | bash
+```
+
+Then run `/caveman` inside Claude Code. Known issue: [#353](https://github.com/JuliusBrussee/caveman/issues/353) — uninstall with:
+
+```bash
+npx -y github:JuliusBrussee/caveman -- --uninstall
+```
+
+### [BuildPartner.ai](https://buildpartner.ai) — BuildPartner
+
+```bash
+curl -fsSL buildpartner.ai/install.sh | sh -s -- --token sk_YOUR_BUILDPARTNER_TOKEN
+```
+
+Replace `sk_YOUR_BUILDPARTNER_TOKEN` with your own token from buildpartner.ai. Do not commit the real value.

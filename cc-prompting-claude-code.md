@@ -2,18 +2,7 @@
 
 **TL;DR:** Anthropic engineers don't write better one-off prompts — they invest in **Claude Skills** (versioned folders of instructions + tools + scripts) that Claude auto-invokes by description, that compose with each other, and that get sharper every session by being edited from chat history. Four rules: (1) prompt skills, not Claude; (2) skills are more than prompts — the *tools* layer is where leverage lives; (3) make skills small and composable, not one mega-skill; (4) treat every session as a chance to update the skill.
 
----
-
-## My Notes
-* Use Plugin `skill-creator`
-  
-### Personal Skill Ideas
-* Build a Educational Website to learn the theory of a topic
-* Build a Educational Tutorial Website to learn the practical of a topic
-* Improve this Educational Website
-* Imporve this Tutorial Website
-* Prepare for Weekly One on One
-* Skill to rip a Youtubevide, extract transcript, summarize transcript and write a file call youtube.md
+> **My notes:** use the `skill-creator` plugin to build these. Planned skill ideas live in the [README](README.md#planned-skill-ideas).
 
 ---
 
