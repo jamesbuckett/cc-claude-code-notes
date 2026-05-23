@@ -12,6 +12,7 @@ Personal install guide for Claude Code on Windows 11, Ubuntu 26.04 LTS, and macO
 - [Claude Code setup](#claude-code-setup)
   - [`settings.json`](#settingsjson)
   - [`statusline.sh`](#statuslinesh)
+  - [`CLAUDE.md`](#claudemd)
   - [Plugins](#plugins)
   - [Model and effort](#model-and-effort)
 - [Git and GitHub](#git-and-github)
@@ -221,6 +222,16 @@ curl -fsSL https://raw.githubusercontent.com/daniel3303/ClaudeCodeStatusLine/v1.
 chmod +x ~/.claude/statusline.sh
 ```
 
+### `CLAUDE.md`
+
+Symlink the repo's `files/CLAUDE.md` into `~/.claude/` so Claude Code reads it every session and your edits stay version-controlled.
+
+From the repo root:
+
+```bash
+[ -f ~/.claude/CLAUDE.md ] && cp ~/.claude/CLAUDE.md ~/.claude/CLAUDE.md-original
+ln -sf "$(pwd)/files/CLAUDE.md" ~/.claude/CLAUDE.md
+```
 
 ### Plugins
 
