@@ -14,7 +14,15 @@ Before implementing:
 - If a simpler approach exists, say so. Push back when warranted.
 - If something is unclear, stop. Name what's confusing. Ask.
 
-## 2. Simplicity First
+## 2. Plan Before You Code
+
+**Propose a plan. Wait for confirmation. Then build.**
+
+- For anything beyond a trivial edit, write the plan first and pause before touching code.
+- If the request is vague, interview me — surface assumptions, edge cases, and what *not* to build — before you start.
+- Move slow to move fast: the cost of a good plan is dwarfed by the cost of debugging the wrong solution.
+
+## 3. Simplicity First
 
 **Minimum code that solves the problem. Nothing speculative.**
 
@@ -26,7 +34,7 @@ Before implementing:
 
 Ask yourself: "Would a senior engineer say this is overcomplicated?" If yes, simplify.
 
-## 3. Surgical Changes
+## 4. Surgical Changes
 
 **Touch only what you must. Clean up only your own mess.**
 
@@ -42,9 +50,11 @@ When your changes create orphans:
 
 The test: Every changed line should trace directly to the user's request.
 
-## 4. Goal-Driven Execution
+## 5. Goal-Driven Execution
 
-**Define success criteria. Loop until verified.**
+**Define success criteria. State how you'll verify. Loop until verified.**
+
+Before writing code, state how you'll know it worked — a test, an observable behavior, a file diff, a browser check. If there's no clear way to verify, flag that; it usually means the goal is underspecified.
 
 Transform tasks into verifiable goals:
 - "Add validation" → "Write tests for invalid inputs, then make them pass"
@@ -60,7 +70,7 @@ For multi-step tasks, state a brief plan:
 
 Strong success criteria let you loop independently. Weak criteria ("make it work") require constant clarification.
 
-## 5. Work Defaults
+## 6. Work Defaults
 
 - **Default deliverable**: single-file HTML for explainer, architecture, and education topics. Do not split into multiple files unless explicitly requested.
 - **Required skills**: always apply both together — `skill-style-guide` provides the visual chassis (typography, color, layout primitives); `skill-build-educational-site` provides the content architecture (information hierarchy, pedagogical flow, section patterns).
