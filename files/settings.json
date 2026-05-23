@@ -1,7 +1,109 @@
 {
+  "effortLevel": "xhigh",
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "dark",
+  "agentPushNotifEnabled": true,
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.sh"
+  },
+  "permissions": {
+    "defaultMode": "bypassPermissions",
+    "allow": [
+      "Bash(git status*)",
+      "Bash(git log*)",
+      "Bash(git diff*)",
+      "Bash(git branch*)",
+      "Bash(git checkout*)",
+      "Bash(git switch*)",
+      "Bash(git add*)",
+      "Bash(git commit*)",
+      "Bash(git pull*)",
+      "Bash(git push*)",
+      "Bash(git fetch*)",
+      "Bash(git stash*)",
+      "Bash(git tag*)",
+      "Bash(git remote*)",
+      "Bash(git rebase*)",
+      "Bash(git merge*)",
+      "Bash(git clone*)",
+      "Bash(gh *)",
+      "Bash(npm *)",
+      "Bash(npx *)",
+      "Bash(node *)",
+      "Bash(yarn *)",
+      "Bash(pnpm *)",
+      "Bash(python *)",
+      "Bash(python3 *)",
+      "Bash(pip *)",
+      "Bash(pip3 *)",
+      "Bash(uv *)",
+      "Bash(pytest*)",
+      "Bash(ruff*)",
+      "Bash(kubectl *)",
+      "Bash(helm *)",
+      "Bash(kustomize *)",
+      "Bash(k9s*)",
+      "Bash(kubectx*)",
+      "Bash(kubens*)",
+      "Bash(docker *)",
+      "Bash(docker-compose *)",
+      "Bash(ls *)",
+      "Bash(cat *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(grep *)",
+      "Bash(find *)",
+      "Bash(file *)",
+      "Bash(which *)",
+      "Bash(wc *)",
+      "Bash(tree*)",
+      "Bash(stat *)",
+      "Bash(jq *)",
+      "Bash(yq *)",
+      "Bash(awk *)",
+      "Bash(sed *)",
+      "Bash(make *)",
+      "Bash(mkdir *)",
+      "Bash(cp *)",
+      "Bash(touch *)",
+      "Bash(pwd*)",
+      "Bash(cd *)",
+      "Bash(echo *)",
+      "Bash(printf *)",
+      "Bash(claude *)",
+      "Read(**)",
+      "Edit(**)",
+      "Write(**)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(sudo rm *)",
+      "Bash(sudo chmod *)",
+      "Bash(chmod 777 *)",
+      "Bash(dd *)",
+      "Bash(mkfs* *)",
+      "Bash(git push --force*)",
+      "Bash(git push -f *)",
+      "Bash(git reset --hard *)",
+      "Bash(npm publish*)",
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Read(**/.aws/credentials)",
+      "Read(**/.kube/config)",
+      "Read(**/.ssh/id_*)",
+      "Read(**/.ssh/*_rsa)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Read(**/credentials*)",
+      "Read(**/secrets/**)",
+      "Edit(./.env)",
+      "Edit(./.env.*)",
+      "Edit(**/.env)",
+      "Edit(**/.env.*)"
+    ]
   },
   "enabledPlugins": {
     "frontend-design@claude-plugins-official": true,
@@ -14,12 +116,6 @@
     "security-guidance@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
-    "caveman": {
-      "source": {
-        "source": "github",
-        "repo": "JuliusBrussee/caveman"
-      }
-    },
     "compound-engineering-plugin": {
       "source": {
         "source": "github",
@@ -27,12 +123,6 @@
       }
     }
   },
-  "effortLevel": "xhigh",
-  "skipDangerousModePermissionPrompt": true,
-  "theme": "dark",
-
-  # Used to run `git pull` at the start of each session
-  # Manage or disable the hook later via /hooks
   "hooks": {
     "SessionStart": [
       {
@@ -42,6 +132,18 @@
             "command": "git rev-parse --is-inside-work-tree >/dev/null 2>&1 && git pull --ff-only 2>&1 || true",
             "timeout": 30,
             "statusMessage": "Pulling latest changes..."
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "FILE=$(jq -r '.tool_input.file_path // empty'); case \"$FILE\" in *.html|*.htm) node ~/projects/skill-build-educational-site/hooks/lint-html.mjs \"$FILE\" ;; esac",
+            "timeout": 15
           }
         ]
       }
