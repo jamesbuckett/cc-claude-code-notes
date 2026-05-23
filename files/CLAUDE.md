@@ -63,8 +63,8 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 ## 5. Work Defaults
 
 - **Default deliverable**: single-file HTML for explainer, architecture, and education topics. Do not split into multiple files unless explicitly requested.
-- **Required skills**: always apply both together — `style-guide` provides the visual chassis (typography, color, layout primitives); `build-educational-site` provides the content architecture (information hierarchy, pedagogical flow, section patterns).
-- **Order of operations**: load `style-guide` first to establish the chassis, then `build-educational-site` to populate structure within it.
+- **Required skills**: always apply both together — `skill-style-guide` provides the visual chassis (typography, color, layout primitives); `skill-build-educational-site` provides the content architecture (information hierarchy, pedagogical flow, section patterns).
+- **Order of operations**: load `skill-style-guide` first to establish the chassis, then `skill-build-educational-site` to populate structure within it.
 
 ---
 
