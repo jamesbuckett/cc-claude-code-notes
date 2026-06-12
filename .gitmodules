@@ -1,0 +1,15 @@
+[submodule "files/skills/skill-build-educational-site"]
+	path = files/skills/skill-build-educational-site
+	url = https://github.com/jamesbuckett/skill-build-educational-site.git
+[submodule "files/skills/skill-improve-quality"]
+	path = files/skills/skill-improve-quality
+	url = https://github.com/jamesbuckett/skill-improve-quality.git
+[submodule "files/skills/skill-rip-youtube"]
+	path = files/skills/skill-rip-youtube
+	url = https://github.com/jamesbuckett/skill-rip-youtube.git
+[submodule "files/skills/skill-style-guide"]
+	path = files/skills/skill-style-guide
+	url = https://github.com/jamesbuckett/skill-style-guide.git
+[submodule "files/skills/skill-update-repo"]
+	path = files/skills/skill-update-repo
+	url = https://github.com/jamesbuckett/skill-update-repo.git
